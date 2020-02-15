@@ -648,6 +648,8 @@ class NetGear:
 
 		# check whether or not termination flag is enabled
 		while not self.terminate:
+			# This should limit the 100% CPU usage - needs testing 2020-02-15T11:00:00-04:00
+			time.sleep(0.02)
 			# check if queue is empty
 			if len(self.queue)>0:
 				return self.queue.popleft()
